@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus: Talk Show | MIET E-Cell</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #1b003b, #2c003e);
+      color: #f8f8f8;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -3;
+    }
+
+    .background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -2;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.25;
+      filter: blur(100px);
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .glow.one {
+      width: 300px;
+      height: 300px;
+      background: #ff2e88;
+      top: 10%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .glow.two {
+      width: 400px;
+      height: 400px;
+      background: #ffffff;
+      top: 50%;
+      left: 70%;
+      animation-delay: 5s;
+    }
+
+    .glow.three {
+      width: 250px;
+      height: 250px;
+      background: #ff2e88;
+      top: 80%;
+      left: 30%;
+      animation-delay: 10s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-50px) scale(1.1); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes neon-glow {
+      0% { box-shadow: 0 0 10px #ff2e88; }
+      50% { box-shadow: 0 0 20px #ff2e88, 0 0 30px #ff2e88; }
+      100% { box-shadow: 0 0 10px #ff2e88; }
+    }
+
+    header {
+      background: rgba(10, 10, 30, 0.9);
+      padding: 12px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #ff2e88;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-title {
+      text-align: center;
+      flex: 1;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #ff2e88;
+      margin-top: 3px;
+      letter-spacing: 1px;
+      animation: fadeIn 2s ease-in-out infinite alternate;
+    }
+
+    .back-btn {
+      color: #ff2e88;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid #ff2e88;
+      padding: 8px 16px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+      margin-left: auto;
+    }
+
+    .back-btn:hover {
+      background: #ff2e88;
+      color: #fff;
+    }
+
+    main {
+      padding: 120px 30px 100px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .content-box {
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 15px;
+      padding: 60px 50px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 15px rgba(255, 46, 136, 0.3);
+      backdrop-filter: blur(10px);
+      border: 2px solid #ff2e88;
+      animation: neon-glow 3s ease-in-out infinite;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #ff2e88;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #ff2e88;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: rgba(10, 10, 30, 0.95);
+      text-align: center;
+      padding: 40px;
+      font-size: 0.95rem;
+      color: #fff;
+      border-top: 2px solid #ff2e88;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <div class="background-animation">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+    <div class="glow three"></div>
+  </div>
+
+  <header>
+    <div class="header-title">
+      <h1>Nexus: Talk Show</h1>
+      <div class="tagline">Where Ideas Meet Innovation</div>
+    </div>
+    <a href="Untitled-1.html" class="back-btn">← Home</a>
+  </header>
+
+  <main>
+    <div class="content-box">
+      <h2>Event Schedule</h2>
+      <h3>Date: June 20, 2025</h3>
+      <p>Time: 4:00 PM – 7:00 PM</p>
+      <p>Venue: MIET Auditorium</p>
+    </div>
+
+    <div class="content-box">
+      <h2>Special Guests</h2>
+      <p><strong>Riya Malhotra</strong> – Founder, GreenTech Solutions</p>
+      <p><strong>Arjun Mehta</strong> – CEO, InnovateX</p>
+      <p><strong>Dr. Kavita Sharma</strong> – Director, MIET Incubation Center</p>
+    </div>
+
+    <div class="content-box">
+      <h2>What to Expect</h2>
+      <p>Engaging discussions on innovation, entrepreneurship, and live Q&A sessions. Get inspired, ask questions, and connect with change-makers!</p>
+    </div>
+
+    <div class="content-box">
+      <h2>Glimpse of Past Events</h2>
+      <p><strong>Startup Sprint 2024</strong> – 24-hour innovation marathon packed with energy, ideas, and mentoring.</p>
+      <p><strong>Idea Ignition 2023</strong> – Idea pitching competition with investors and mentors on panel.</p>
+      <p><strong>BizTalks 2023</strong> – Fireside chats with local entrepreneurs who made it big.</p>
+    </div>
+
+    <div class="content-box">
+      <h2>Photo Gallery</h2>
+      <div class="gallery">
+        <img src="https://via.placeholder.com/400x250?text=Event+1" alt="Event 1" />
+        <img src="https://via.placeholder.com/400x250?text=Event+2" alt="Event 2" />
+        <img src="https://via.placeholder.com/400x250?text=Event+3" alt="Event 3" />
+        <img src="https://via.placeholder.com/400x250?text=Event+4" alt="Event 4" />
+        <img src="https://via.placeholder.com/400x250?text=Event+5" alt="Event 5" />
+        <img src="https://via.placeholder.com/400x250?text=Event+5" alt="Event 6" />
+        
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MIET Entrepreneurship Cell. All rights reserved.</p>
+  </footer>
+
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 1000 } },
+        color: { value: ["#ffffff", "#ff2e88"] },
+        shape: { type: "circle" },
+        opacity: { value: 0.2 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 130,
+          color: "#ffffff",
+          opacity: 0.2,
+          width: 1
+        },
+        move: { enable: true, speed: 1.2 }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 80 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>

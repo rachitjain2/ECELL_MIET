@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Cell MIET | NOVA Speaker Session</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #1b003b, #2c003e);
+      color: #f8f8f8; line-height: 1.6; scroll-behavior: smooth;
+      position: relative; overflow-x: hidden;
+    }
+
+    /* Purple glow animation background */
+    .background-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -2; }
+    .glow { position: absolute; border-radius: 50%; opacity: 0.25; filter: blur(100px); animation: float 20s infinite ease-in-out; }
+    .glow.one { width: 300px; height: 300px; background: #a259ff; top: 10%; left: 20%; animation-delay: 0s; }
+    .glow.two { width: 400px; height: 400px; background: #ffffff; top: 50%; left: 70%; animation-delay: 5s; }
+    .glow.three { width: 250px; height: 250px; background: #a259ff; top: 80%; left: 30%; animation-delay: 10s; }
+
+    @keyframes float { 0%{transform: translateY(0) scale(1);} 50%{transform: translateY(-50px) scale(1.1);} 100%{transform: translateY(0) scale(1);} }
+    @keyframes fadeIn { 0%{opacity: .3;} 100%{opacity: 1;} }
+    @keyframes neon-glow {
+      0%{ box-shadow: 0 0 10px #a259ff; }
+      50%{ box-shadow: 0 0 20px #a259ff, 0 0 30px #a259ff; }
+      100%{ box-shadow: 0 0 10px #a259ff; }
+    }
+
+    header {
+      background: rgba(10,10,30,.9);
+      padding: 12px 30px; display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 2px solid #a259ff; position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px);
+    }
+    .header-title { text-align: center; flex: 1; }
+    header h1 { font-size: 1.6rem; font-weight: 700; color: #fff; }
+    .tagline { font-size: .9rem; font-weight: 500; color: #a259ff; margin-top: 3px; letter-spacing: 1px; animation: fadeIn 2s ease-in-out infinite alternate; }
+
+    .back-btn {
+      color:#a259ff; text-decoration:none; font-weight:600; border:2px solid #a259ff;
+      padding:8px 16px; border-radius:30px; transition:all .3s ease; font-size:.85rem; margin-left:auto;
+    }
+    .back-btn:hover{ background:#a259ff; color:#fff; }
+
+    main { padding:120px 30px 100px; max-width:1000px; margin:auto; text-align:center; }
+    .content-box {
+      background: rgba(255,255,255,.07); border-radius:15px; padding:60px 50px; margin-bottom:40px;
+      box-shadow:0 0 15px rgba(162,89,255,.3); backdrop-filter: blur(10px); border:2px solid #a259ff;
+      animation: neon-glow 3s ease-in-out infinite;
+    }
+
+    h2 { font-size:2.4rem; margin-bottom:20px; font-weight:700; color:#fff; }
+    h3 { font-size:1.6rem; color:#a259ff; margin-bottom:10px; }
+    p { font-size:1.1rem; color:#e0e0e0; line-height:1.8; margin-bottom:20px; }
+
+    .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .card {
+      background: rgba(255,255,255,.06); border: 2px solid #a259ff; border-radius: 14px; padding: 18px;
+      text-align: left;
+    }
+    .card img { width:100%; height:160px; object-fit:cover; border-radius:10px; border:1px solid #a259ff; margin-bottom:10px; }
+    .meta { font-size:.95rem; color:#cfcfcf; }
+
+    .gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:15px; margin-top:30px; }
+    .gallery img { width:100%; height:180px; object-fit:cover; border-radius:10px; border:2px solid #a259ff; transition: transform .3s ease; }
+    .gallery img:hover { transform: scale(1.05); }
+
+    .cta-btn {
+      display:inline-block; margin-top:10px; padding:12px 22px; border-radius:30px;
+      border:2px solid #a259ff; color:#fff; text-decoration:none; font-weight:700; transition:.3s;
+    }
+    .cta-btn:hover { background:#a259ff; }
+
+    footer { background: rgba(10,10,30,.95); text-align:center; padding:40px; font-size:.95rem; color:#fff; border-top:2px solid #a259ff; }
+  </style>
+</head>
+
+<body>
+  <div class="background-animation">
+    <span class="glow one"></span>
+    <span class="glow two"></span>
+    <span class="glow three"></span>
+  </div>
+
+  <header>
+    <a class="back-btn" href="#register">Register</a>
+    <div class="header-title">
+      <h1>E-Cell MIET — Speaker Series</h1>
+      <div class="tagline">Ignite • Build • Scale</div>
+    </div>
+    <a class="back-btn" href="#agenda">Agenda</a>
+  </header>
+
+  <main>
+    <section class="content-box" id="nova">
+      <h2>NOVA: One of the Best Speaker Session of MIET</h2>
+      <p><strong>Recent Talk Show</strong> by E-Cell MIET featuring India’s leading founders and investors. Insights on innovation, startup execution, and building in India’s emerging ecosystem.</p>
+      <p class="meta">Date: <b>Friday, 18 Oct 2025</b> • Time: <b>3:00 PM – 6:30 PM</b> • Venue: <b>MIET Auditorium</b></p>
+      <a href="#register" class="cta-btn">Get Your Seat</a>
+    </section>
+
+    <section class="content-box" id="speakers">
+      <h2>Featured Speakers</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80" alt="Speaker 1">
+          <h3>Arjun Mehta</h3>
+          <p class="meta">Founder & CEO, NovaLabs</p>
+          <p>From dorm room to 10M+ users — frameworks for product-market fit and creating a growth loop early.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80" alt="Speaker 2">
+          <h3>Rhea Kapoor</h3>
+          <p class="meta">Partner, Catalyst Capital</p>
+          <p>How VCs evaluate pre-seed startups and what your first data room should contain.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-box" id="register">
+      <h2>Register Now</h2>
+      <p>Limited seats available. MIET students get early access. Bring your idea, your passion, and let’s build!</p>
+      <a class="cta-btn" href="#">Fill Registration Form</a>
+      <p class="meta" style="margin-top:10px;">For queries: <b>ecell@miet.ac.in</b></p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="yr"></span> E-Cell MIET • Powered by Purple Passion for Entrepreneurship.
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
